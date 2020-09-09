@@ -9,21 +9,31 @@
 /* Begin PBXBuildFile section */
 		1FD719F6250980B5001A12C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD719F5250980B5001A12C9 /* AppDelegate.swift */; };
 		1FD719F8250980B5001A12C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD719F7250980B5001A12C9 /* SceneDelegate.swift */; };
-		1FD719FA250980B5001A12C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD719F9250980B5001A12C9 /* ViewController.swift */; };
-		1FD719FD250980B5001A12C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FD719FB250980B5001A12C9 /* Main.storyboard */; };
 		1FD719FF250980B7001A12C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FD719FE250980B7001A12C9 /* Assets.xcassets */; };
 		1FD71A02250980B7001A12C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FD71A00250980B7001A12C9 /* LaunchScreen.storyboard */; };
+		1FD71A0C25098149001A12C9 /* OSLog+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD71A0B25098149001A12C9 /* OSLog+Extension.swift */; };
+		1FD71A0F2509815F001A12C9 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD71A0E2509815F001A12C9 /* Players.swift */; };
+		1FD71A1225098176001A12C9 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD71A1125098176001A12C9 /* Title.swift */; };
+		1FD71A1525098191001A12C9 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD71A1425098191001A12C9 /* Network.swift */; };
+		1FD71A18250981AD001A12C9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD71A17250981AD001A12C9 /* HomeViewController.swift */; };
+		1FD71A1A250981C2001A12C9 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD71A19250981C2001A12C9 /* TabBarViewController.swift */; };
+		1FD71A1C250981D9001A12C9 /* PlayersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD71A1B250981D9001A12C9 /* PlayersTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1FD719F2250980B5001A12C9 /* ChessProfiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChessProfiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FD719F2250980B5001A12C9 /* Chess Profiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chess Profiles.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FD719F5250980B5001A12C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FD719F7250980B5001A12C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1FD719F9250980B5001A12C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1FD719FC250980B5001A12C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1FD719FE250980B7001A12C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FD71A01250980B7001A12C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1FD71A03250980B7001A12C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FD71A0B25098149001A12C9 /* OSLog+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OSLog+Extension.swift"; sourceTree = "<group>"; };
+		1FD71A0E2509815F001A12C9 /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
+		1FD71A1125098176001A12C9 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
+		1FD71A1425098191001A12C9 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		1FD71A17250981AD001A12C9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1FD71A19250981C2001A12C9 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		1FD71A1B250981D9001A12C9 /* PlayersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +58,7 @@
 		1FD719F3250980B5001A12C9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1FD719F2250980B5001A12C9 /* ChessProfiles.app */,
+				1FD719F2250980B5001A12C9 /* Chess Profiles.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,15 +66,68 @@
 		1FD719F4250980B5001A12C9 /* ChessProfiles */ = {
 			isa = PBXGroup;
 			children = (
+				1FD71A16250981A3001A12C9 /* Controllers */,
+				1FD71A132509818A001A12C9 /* Services */,
+				1FD71A102509816B001A12C9 /* Enums */,
+				1FD71A0D25098157001A12C9 /* Models */,
+				1FD71A0A25098135001A12C9 /* Extensions */,
+				1FD71A09250980E3001A12C9 /* Support */,
+			);
+			path = ChessProfiles;
+			sourceTree = "<group>";
+		};
+		1FD71A09250980E3001A12C9 /* Support */ = {
+			isa = PBXGroup;
+			children = (
 				1FD719F5250980B5001A12C9 /* AppDelegate.swift */,
 				1FD719F7250980B5001A12C9 /* SceneDelegate.swift */,
-				1FD719F9250980B5001A12C9 /* ViewController.swift */,
-				1FD719FB250980B5001A12C9 /* Main.storyboard */,
 				1FD719FE250980B7001A12C9 /* Assets.xcassets */,
 				1FD71A00250980B7001A12C9 /* LaunchScreen.storyboard */,
 				1FD71A03250980B7001A12C9 /* Info.plist */,
 			);
-			path = ChessProfiles;
+			path = Support;
+			sourceTree = "<group>";
+		};
+		1FD71A0A25098135001A12C9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1FD71A0B25098149001A12C9 /* OSLog+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1FD71A0D25098157001A12C9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1FD71A0E2509815F001A12C9 /* Players.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1FD71A102509816B001A12C9 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				1FD71A1125098176001A12C9 /* Title.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		1FD71A132509818A001A12C9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1FD71A1425098191001A12C9 /* Network.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1FD71A16250981A3001A12C9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1FD71A17250981AD001A12C9 /* HomeViewController.swift */,
+				1FD71A19250981C2001A12C9 /* TabBarViewController.swift */,
+				1FD71A1B250981D9001A12C9 /* PlayersTableViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,7 +147,7 @@
 			);
 			name = ChessProfiles;
 			productName = ChessProfiles;
-			productReference = 1FD719F2250980B5001A12C9 /* ChessProfiles.app */;
+			productReference = 1FD719F2250980B5001A12C9 /* Chess Profiles.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -127,7 +190,6 @@
 			files = (
 				1FD71A02250980B7001A12C9 /* LaunchScreen.storyboard in Resources */,
 				1FD719FF250980B7001A12C9 /* Assets.xcassets in Resources */,
-				1FD719FD250980B5001A12C9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +200,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FD719FA250980B5001A12C9 /* ViewController.swift in Sources */,
+				1FD71A1A250981C2001A12C9 /* TabBarViewController.swift in Sources */,
+				1FD71A1225098176001A12C9 /* Title.swift in Sources */,
+				1FD71A0F2509815F001A12C9 /* Players.swift in Sources */,
+				1FD71A1525098191001A12C9 /* Network.swift in Sources */,
+				1FD71A0C25098149001A12C9 /* OSLog+Extension.swift in Sources */,
 				1FD719F6250980B5001A12C9 /* AppDelegate.swift in Sources */,
+				1FD71A18250981AD001A12C9 /* HomeViewController.swift in Sources */,
 				1FD719F8250980B5001A12C9 /* SceneDelegate.swift in Sources */,
+				1FD71A1C250981D9001A12C9 /* PlayersTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1FD719FB250980B5001A12C9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1FD719FC250980B5001A12C9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1FD71A00250980B7001A12C9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -286,13 +346,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TQPTGGXQ34;
-				INFOPLIST_FILE = ChessProfiles/Info.plist;
+				INFOPLIST_FILE = ChessProfiles/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shawnbierman.ChessProfiles;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Chess Profiles";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -304,13 +364,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TQPTGGXQ34;
-				INFOPLIST_FILE = ChessProfiles/Info.plist;
+				INFOPLIST_FILE = ChessProfiles/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shawnbierman.ChessProfiles;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Chess Profiles";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
