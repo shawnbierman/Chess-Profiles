@@ -10,56 +10,91 @@ import UIKit
 
 class PlayersTableViewController: UITableViewController {
 
-    var players = [String]() {
-        didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
+    let searchController = UISearchController()
+
+    var isSearching: Bool = false { didSet { if !isSearching { updateData() }}}
+    var players = [String]() { didSet { updateData() }}
+    var filteredPlayers = [String]() { didSet { updateData() }}
 
     // MARK: - Lifecycle Methods.
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        title = "Titled Players"
+
         setup()
-        fetch()
+        fetch(.GM)
     }
 
     // MARK: - Private Methods.
 
     private func setup() {
+
         view.backgroundColor = .systemBackground
 
         let image = UIImage(systemName: "slider.horizontal.3")
         let btn = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(filterByTitle))
 
+        searchController.searchResultsUpdater                 = self
+        searchController.searchBar.delegate                   = self
+        searchController.searchBar.placeholder                = "Search for a player"
+        searchController.obscuresBackgroundDuringPresentation = false
+
         navigationItem.rightBarButtonItem = btn
+        navigationItem.searchController   = searchController
+
+        navigationController?.navigationBar.prefersLargeTitles = true
+
     }
 
-    private func fetch() {
+    private func fetch(_ title: Title) {
 
-        Network.shared.fetch(title: .GM) { [weak self] (result) in
+        Network.shared.fetch(title: title) { [weak self] (result) in
             guard let self = self else { return }
 
             switch result {
             case .success(let success):
                 self.players = success.players
+                DispatchQueue.main.async { self.title = title.rawValue }
             case .failure(let error):
                 dump(error.localizedDescription)
             }
+        }
+    }
+
+    private func updateData() {
+
+        // There will likely be more here soon.
+
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
 
     }
 
     @objc func filterByTitle() {
 
+        // TODO: - Filter by titles
         // GM, WGM, IM, WIM, FM, WFM, NM, WNM, CM, WCM
+
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
-        alert.addAction(UIAlertAction(title: "Grandmasters", style: .default))
-        alert.addAction(UIAlertAction(title: "International Masters", style: .default))
-        alert.addAction(UIAlertAction(title: "Fide Masters", style: .default))
+        alert.addAction(UIAlertAction(title: "Grandmasters", style: .default) { [weak self] action in
+            guard let self = self else { return }
+            self.fetch(.GM)
+        })
+
+        alert.addAction(UIAlertAction(title: "International Masters", style: .default) { [weak self] action in
+            guard let self = self else { return }
+            self.fetch(.IM)
+        })
+
+        alert.addAction(UIAlertAction(title: "Fide Masters", style: .default) { [weak self] action in
+            guard let self = self else { return }
+            self.fetch(.FM)
+        })
+
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 
         present(alert, animated: true, completion: nil)
@@ -69,7 +104,7 @@ class PlayersTableViewController: UITableViewController {
 extension PlayersTableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        players.count
+        isSearching ? filteredPlayers.count : players.count
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -78,10 +113,31 @@ extension PlayersTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        let player = players[indexPath.row]
+        let model = isSearching ? filteredPlayers : players
+        let player = model[indexPath.row]
 
         cell.textLabel?.text = player
 
         return cell
+    }
+}
+
+extension PlayersTableViewController: UISearchResultsUpdating, UISearchBarDelegate {
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.count == 0 {
+            isSearching = false
+        }
+    }
+
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+
+        isSearching = true
+        filteredPlayers = players.filter { $0.lowercased().contains(filter.lowercased()) }
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearching = false
     }
 }
