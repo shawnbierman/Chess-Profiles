@@ -90,7 +90,7 @@ class PlayersTableViewController: UITableViewController {
             self.fetch(.IM)
         })
 
-        alert.addAction(UIAlertAction(title: "Fide Masters", style: .default) { [weak self] action in
+        alert.addAction(UIAlertAction(title: "FIDE Masters", style: .default) { [weak self] action in
             guard let self = self else { return }
             self.fetch(.FM)
         })
