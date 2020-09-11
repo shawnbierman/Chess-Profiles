@@ -58,7 +58,7 @@ class PlayersTableViewController: UITableViewController {
                 self.players = success.players
                 DispatchQueue.main.async {
                     self.title = title.rawValue
-                    self.tableView.setContentOffset(.zero, animated: true)
+                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
                 }
             case .failure(let error):
                 dump(error.localizedDescription)
