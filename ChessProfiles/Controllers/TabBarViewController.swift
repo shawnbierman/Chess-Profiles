@@ -18,11 +18,11 @@ class TabBarViewController: UITabBarController {
     private func createViewControllers() -> [UIViewController] {
 
         let home = HomeViewController()
-        let players = PlayersTableViewController()
+        let players = UINavigationController(rootViewController: PlayersTableViewController())
 
-        home.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), selectedImage: nil)
+        home.tabBarItem    = UITabBarItem(title: "Home",    image: UIImage(systemName: "house.fill"),    selectedImage: nil)
         players.tabBarItem = UITabBarItem(title: "Players", image: UIImage(systemName: "person.2.fill"), selectedImage: nil)
 
-        return [home, UINavigationController(rootViewController: players)]
+        return [home, players]
     }
 }
