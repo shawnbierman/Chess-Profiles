@@ -21,7 +21,7 @@ class ProfileViewController: BaseViewController {
     let profileImage: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.image = UIImage(systemName: "questionmark.circle.fill")
+        iv.image = #imageLiteral(resourceName: "noavatar")
         iv.layer.cornerRadius = 4
         iv.clipsToBounds = true
         return iv
