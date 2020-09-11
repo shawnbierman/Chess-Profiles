@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F9D2884250AB19000994CFC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D2883250AB19000994CFC /* ProfileViewController.swift */; };
+		1F9D2887250AE05C00994CFC /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D2886250AE05C00994CFC /* Player.swift */; };
+		1F9D288A250AF1AC00994CFC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1F9D2889250AF1AC00994CFC /* Kingfisher */; };
 		1FD719F6250980B5001A12C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD719F5250980B5001A12C9 /* AppDelegate.swift */; };
 		1FD719F8250980B5001A12C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD719F7250980B5001A12C9 /* SceneDelegate.swift */; };
 		1FD719FF250980B7001A12C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FD719FE250980B7001A12C9 /* Assets.xcassets */; };
@@ -21,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F9D2883250AB19000994CFC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1F9D2886250AE05C00994CFC /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1FD719F2250980B5001A12C9 /* Chess Profiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chess Profiles.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FD719F5250980B5001A12C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FD719F7250980B5001A12C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F9D288A250AF1AC00994CFC /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				1FD71A0E2509815F001A12C9 /* Players.swift */,
+				1F9D2886250AE05C00994CFC /* Player.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -126,6 +133,7 @@
 				1FD71A17250981AD001A12C9 /* HomeViewController.swift */,
 				1FD71A19250981C2001A12C9 /* TabBarViewController.swift */,
 				1FD71A1B250981D9001A12C9 /* PlayersTableViewController.swift */,
+				1F9D2883250AB19000994CFC /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -146,6 +154,9 @@
 			dependencies = (
 			);
 			name = ChessProfiles;
+			packageProductDependencies = (
+				1F9D2889250AF1AC00994CFC /* Kingfisher */,
+			);
 			productName = ChessProfiles;
 			productReference = 1FD719F2250980B5001A12C9 /* Chess Profiles.app */;
 			productType = "com.apple.product-type.application";
@@ -174,6 +185,9 @@
 				Base,
 			);
 			mainGroup = 1FD719E9250980B5001A12C9;
+			packageReferences = (
+				1F9D2888250AF1AC00994CFC /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 1FD719F3250980B5001A12C9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -200,8 +214,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F9D2887250AE05C00994CFC /* Player.swift in Sources */,
 				1FD71A1A250981C2001A12C9 /* TabBarViewController.swift in Sources */,
 				1FD71A1225098176001A12C9 /* Title.swift in Sources */,
+				1F9D2884250AB19000994CFC /* ProfileViewController.swift in Sources */,
 				1FD71A0F2509815F001A12C9 /* Players.swift in Sources */,
 				1FD71A1525098191001A12C9 /* Network.swift in Sources */,
 				1FD71A0C25098149001A12C9 /* OSLog+Extension.swift in Sources */,
@@ -398,6 +414,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1F9D2888250AF1AC00994CFC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.15.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1F9D2889250AF1AC00994CFC /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F9D2888250AF1AC00994CFC /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1FD719EA250980B5001A12C9 /* Project object */;
 }
