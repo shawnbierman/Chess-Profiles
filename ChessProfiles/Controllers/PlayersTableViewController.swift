@@ -50,7 +50,7 @@ class PlayersTableViewController: UITableViewController {
 
     private func fetch(_ title: Title) {
 
-        Network.shared.fetch(title: title) { [weak self] (result) in
+        Network.shared.fetchTitles(for: title) { [weak self] (result) in
             guard let self = self else { return }
 
             switch result {
@@ -101,6 +101,8 @@ class PlayersTableViewController: UITableViewController {
     }
 }
 
+// MARK: - TableView datasource and delegate methods.
+
 extension PlayersTableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -109,6 +111,11 @@ extension PlayersTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
+        let vc = ProfileViewController()
+        vc.modalPresentationStyle = .popover
+        vc.player = isSearching ? filteredPlayers[indexPath.row] : players[indexPath.row]
+        navigationController?.present(vc, animated: true, completion: nil)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -121,6 +128,8 @@ extension PlayersTableViewController {
         return cell
     }
 }
+
+// MARK: - SearchBar datasource and delegate methods.
 
 extension PlayersTableViewController: UISearchResultsUpdating, UISearchBarDelegate {
 
