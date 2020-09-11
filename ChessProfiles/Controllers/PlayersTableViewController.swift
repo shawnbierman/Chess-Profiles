@@ -21,10 +21,8 @@ class PlayersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Titled Players"
-
         setup()
-        fetch(.GM)
+        fetchPlayers(withTitle: .GM) // a default offering of data
     }
 
     // MARK: - Private Methods.
@@ -48,18 +46,21 @@ class PlayersTableViewController: UITableViewController {
 
     }
 
-    private func fetch(_ title: Title) {
+    private func fetchPlayers(withTitle title: Title) {
 
         Network.shared.fetchTitles(for: title) { [weak self] (result) in
             guard let self = self else { return }
 
             switch result {
+
             case .success(let success):
+
                 self.players = success.players
                 DispatchQueue.main.async {
-                    self.title = title.rawValue
+                    self.title = title.localizedName
                     self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
                 }
+
             case .failure(let error):
                 dump(error.localizedDescription)
             }
@@ -78,25 +79,17 @@ class PlayersTableViewController: UITableViewController {
 
     @objc func filterByTitle() {
 
-        // TODO: - Filter by titles
-        // GM, WGM, IM, WIM, FM, WFM, NM, WNM, CM, WCM
-
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
-        alert.addAction(UIAlertAction(title: "Grandmasters", style: .default) { [weak self] action in
-            guard let self = self else { return }
-            self.fetch(.GM)
-        })
+        for title in Title.allCases {
 
-        alert.addAction(UIAlertAction(title: "International Masters", style: .default) { [weak self] action in
-            guard let self = self else { return }
-            self.fetch(.IM)
-        })
+            let action = UIAlertAction(title: title.localizedName, style: .default) { [weak self] _ in
+                guard let self = self else { return }
+                self.fetchPlayers(withTitle: title)
+            }
 
-        alert.addAction(UIAlertAction(title: "FIDE Masters", style: .default) { [weak self] action in
-            guard let self = self else { return }
-            self.fetch(.FM)
-        })
+            alert.addAction(action)
+        }
 
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 
@@ -120,6 +113,13 @@ extension PlayersTableViewController {
         vc.player = isSearching ? filteredPlayers[indexPath.row] : players[indexPath.row]
         navigationController?.present(vc, animated: true, completion: nil)
     }
+
+
+//    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+//    }
+//
+//    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+//    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
