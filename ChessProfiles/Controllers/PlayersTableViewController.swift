@@ -56,7 +56,10 @@ class PlayersTableViewController: UITableViewController {
             switch result {
             case .success(let success):
                 self.players = success.players
-                DispatchQueue.main.async { self.title = title.rawValue }
+                DispatchQueue.main.async {
+                    self.title = title.rawValue
+                    self.tableView.setContentOffset(.zero, animated: true)
+                }
             case .failure(let error):
                 dump(error.localizedDescription)
             }
