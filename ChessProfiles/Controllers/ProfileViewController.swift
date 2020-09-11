@@ -9,7 +9,7 @@
 import Kingfisher
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: BaseViewController {
 
     let dismissButton: UIButton = {
         let button = UIButton(type: .system)
@@ -98,6 +98,8 @@ class ProfileViewController: UIViewController {
 
     private func fetch(_ player: String) {
 
+        showLoadingView()
+
         Network.shared.fetchProfile(for: player) { [weak self] (result) in
             guard let self = self else { return }
 
@@ -106,6 +108,7 @@ class ProfileViewController: UIViewController {
             case .success(let player):
                 dump(player)
                 self.configure(for: player)
+                self.dismissLoadingView()
 
             case .failure(let error):
                 dump(error.localizedDescription)
@@ -116,8 +119,6 @@ class ProfileViewController: UIViewController {
     private func setup() {
 
         // likely with switch to UIStackViews
-
-        view.backgroundColor = .systemBackground
 
         dismissButton.addTarget(self, action: #selector(dismissButtonTapped), for: .touchUpInside)
 
