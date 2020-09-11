@@ -114,13 +114,6 @@ extension PlayersTableViewController {
         navigationController?.present(vc, animated: true, completion: nil)
     }
 
-
-//    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-//    }
-//
-//    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
-//    }
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let model = isSearching ? filteredPlayers : players
