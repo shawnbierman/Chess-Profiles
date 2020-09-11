@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Title: String {
+enum Title: String, Codable {
     case GM, WGM, IM, WIM, FM, WFM, NM, WNM, CM, WCM
 //
 //    case GM = "Grandmaster"
