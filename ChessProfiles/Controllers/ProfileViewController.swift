@@ -21,9 +21,10 @@ class ProfileViewController: BaseViewController {
     let profileImage: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.image = #imageLiteral(resourceName: "noavatar")
-        iv.layer.cornerRadius = 4
+        iv.image = #imageLiteral(resourceName: "noavatar").withRenderingMode(.alwaysOriginal)
+        iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
+        iv.layer.cornerRadius = 4
         return iv
     }()
 
