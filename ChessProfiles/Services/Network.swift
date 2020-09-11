@@ -13,19 +13,31 @@ class Network {
 
     static let shared = Network()
 
-    private let url = "https://api.chess.com/pub/titled/"
+    private func buildUrl(with path: String) -> URL {
 
-    func fetch(title: Title, completion: @escaping (Result<Players, Error>) -> Void) {
-        fetchJSONDecodable(title: title, completion: completion)
+        var urlComponents = URLComponents()
+            urlComponents.scheme = "https"
+            urlComponents.host = "api.chess.com"
+            urlComponents.path = "/pub/\(path)"
+
+        return urlComponents.url!
     }
 
-    private func fetchJSONDecodable<T: Decodable>(title: Title, completion: @escaping (Result<T, Error>) -> Void) {
+    // fetch player profiles by username
+    func fetchProfile(for player: String, completion: @escaping (Result<Player, Error>) -> Void) {
+        let url = buildUrl(with: "player/\(player)")
+        fetchJSONDecodable(url: url, completion: completion)
+    }
 
-        let baseURLString = url.appending(title.rawValue)
+    // fetch titled users by title
+    func fetchTitles(for title: Title, completion: @escaping (Result<Players, Error>) -> Void) {
+        let url = buildUrl(with: "titled/\(title)")
+        fetchJSONDecodable(url: url, completion: completion)
+    }
 
-        os_log("%{PUBLIC}@", log: .networking, type: .info, baseURLString)
+    private func fetchJSONDecodable<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>) -> Void) {
 
-        guard let url = URL(string: baseURLString) else { fatalError("URL Failure") }
+        os_log("%{PUBLIC}@", log: .networking, type: .info, url.absoluteString)
 
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
 
