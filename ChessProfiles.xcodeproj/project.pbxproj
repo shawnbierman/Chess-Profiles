@@ -22,6 +22,7 @@
 		1FD71A18250981AD001A12C9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD71A17250981AD001A12C9 /* HomeViewController.swift */; };
 		1FD71A1A250981C2001A12C9 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD71A19250981C2001A12C9 /* TabBarViewController.swift */; };
 		1FD71A1C250981D9001A12C9 /* PlayersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD71A1B250981D9001A12C9 /* PlayersTableViewController.swift */; };
+		1FFC75B5250C4C7000AE155C /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC75B4250C4C7000AE155C /* Country.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		1FD71A17250981AD001A12C9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1FD71A19250981C2001A12C9 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		1FD71A1B250981D9001A12C9 /* PlayersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTableViewController.swift; sourceTree = "<group>"; };
+		1FFC75B4250C4C7000AE155C /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			children = (
 				1FD71A0E2509815F001A12C9 /* Players.swift */,
 				1F9D2886250AE05C00994CFC /* Player.swift */,
+				1FFC75B4250C4C7000AE155C /* Country.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -133,10 +136,10 @@
 			isa = PBXGroup;
 			children = (
 				1FD71A17250981AD001A12C9 /* HomeViewController.swift */,
+				1F15AE60250BA19100CE7DA6 /* BaseViewController.swift */,
 				1FD71A19250981C2001A12C9 /* TabBarViewController.swift */,
 				1FD71A1B250981D9001A12C9 /* PlayersTableViewController.swift */,
 				1F9D2883250AB19000994CFC /* ProfileViewController.swift */,
-				1F15AE60250BA19100CE7DA6 /* BaseViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				1FD71A1A250981C2001A12C9 /* TabBarViewController.swift in Sources */,
 				1FD71A1225098176001A12C9 /* Title.swift in Sources */,
 				1F9D2884250AB19000994CFC /* ProfileViewController.swift in Sources */,
+				1FFC75B5250C4C7000AE155C /* Country.swift in Sources */,
 				1FD71A0F2509815F001A12C9 /* Players.swift in Sources */,
 				1F15AE61250BA19100CE7DA6 /* BaseViewController.swift in Sources */,
 				1FD71A1525098191001A12C9 /* Network.swift in Sources */,
