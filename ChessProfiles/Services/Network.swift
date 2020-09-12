@@ -23,6 +23,12 @@ class Network {
         return urlComponents.url!
     }
 
+    // fetch country profile
+    func fetchCountryProfile(using url: String, completion: @escaping (Result<Country, Error>) -> Void) {
+        let url = URL(string: url)!
+        fetchJSONDecodable(url: url, completion: completion)
+    }
+
     // fetch player profiles by username
     func fetchProfile(for player: String, completion: @escaping (Result<Player, Error>) -> Void) {
         let url = buildUrl(with: "player/\(player)")
