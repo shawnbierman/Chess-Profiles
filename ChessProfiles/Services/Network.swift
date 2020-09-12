@@ -30,7 +30,7 @@ class Network {
     }
 
     // fetch titled users by title
-    func fetchTitles(for title: Title, completion: @escaping (Result<Players, Error>) -> Void) {
+    func fetchPlayers(with title: Title, completion: @escaping (Result<Players, Error>) -> Void) {
         let url = buildUrl(with: "titled/\(title)")
         fetchJSONDecodable(url: url, completion: completion)
     }

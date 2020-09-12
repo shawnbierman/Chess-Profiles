@@ -48,7 +48,7 @@ class PlayersTableViewController: UITableViewController {
 
     private func fetchPlayers(withTitle title: Title) {
 
-        Network.shared.fetchTitles(for: title) { [weak self] (result) in
+        Network.shared.fetchPlayers(with: title) { [weak self] (result) in
             guard let self = self else { return }
 
             switch result {
