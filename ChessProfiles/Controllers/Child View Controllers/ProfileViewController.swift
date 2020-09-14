@@ -13,7 +13,8 @@ class ProfileViewController: BaseViewController {
     let profileImage: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.image = #imageLiteral(resourceName: "noavatar").withRenderingMode(.alwaysOriginal)
+        iv.image?.withRenderingMode(.alwaysOriginal)
+        iv.image = #imageLiteral(resourceName: "noavatar")
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.layer.cornerRadius = 4
@@ -23,7 +24,7 @@ class ProfileViewController: BaseViewController {
     let usernameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .orange
+//        label.backgroundColor = .systemPink
         label.font = .preferredFont(forTextStyle: .largeTitle)
         label.adjustsFontSizeToFitWidth = true
         label.adjustsFontForContentSizeCategory = true
@@ -33,7 +34,7 @@ class ProfileViewController: BaseViewController {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .yellow
+//        label.backgroundColor = .systemPurple
         label.font = .preferredFont(forTextStyle: .headline)
         label.adjustsFontSizeToFitWidth = true
         label.adjustsFontForContentSizeCategory = true
@@ -44,7 +45,7 @@ class ProfileViewController: BaseViewController {
     let locationLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .green
+//        label.backgroundColor = .systemTeal
         label.font = .preferredFont(forTextStyle: .subheadline)
         label.adjustsFontSizeToFitWidth = true
         label.adjustsFontForContentSizeCategory = true
@@ -59,6 +60,18 @@ class ProfileViewController: BaseViewController {
         setup()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        prepareForReuse()
+    }
+
+    private func prepareForReuse() {
+        self.profileImage.image = nil
+        self.usernameLabel.text = nil
+        self.nameLabel.text = nil
+        self.locationLabel.text = nil
+    }
+
     // MARK: - Member Methods
 
     func configure(for player: Player) {
@@ -66,7 +79,10 @@ class ProfileViewController: BaseViewController {
         DispatchQueue.main.async {
 
             if let avatar = player.avatar {
-                self.profileImage.kf.setImage(with: URL(string: avatar)!)
+                self.profileImage.kf.indicatorType = .activity
+                self.profileImage.kf.setImage(with: URL(string: avatar)!, options: [.transition(.fade(0.3))])
+            } else {
+                self.profileImage.image = #imageLiteral(resourceName: "noavatar")
             }
 
             self.usernameLabel.text = player.username
@@ -84,8 +100,6 @@ class ProfileViewController: BaseViewController {
 
         [profileImage, usernameLabel, nameLabel, locationLabel].forEach(view.addSubview(_:))
 
-        let padding: CGFloat = 20
-
         NSLayoutConstraint.activate([
 
             profileImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -93,7 +107,7 @@ class ProfileViewController: BaseViewController {
             profileImage.heightAnchor.constraint(equalToConstant: 100),
             profileImage.widthAnchor.constraint(equalToConstant: 100),
 
-            usernameLabel.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor),
+            usernameLabel.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 15),
             usernameLabel.topAnchor.constraint(equalTo: profileImage.topAnchor),
             usernameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             usernameLabel.heightAnchor.constraint(equalToConstant: 40),
@@ -104,7 +118,7 @@ class ProfileViewController: BaseViewController {
             nameLabel.heightAnchor.constraint(equalToConstant: 20),
 
             locationLabel.leadingAnchor.constraint(equalTo: usernameLabel.leadingAnchor),
-            locationLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: padding),
+            locationLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
             locationLabel.trailingAnchor.constraint(equalTo: usernameLabel.trailingAnchor),
             locationLabel.heightAnchor.constraint(equalToConstant: 20),
 
