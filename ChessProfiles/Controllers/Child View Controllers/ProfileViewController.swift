@@ -6,6 +6,7 @@
 //  Copyright © 2020 Shawn Bierman. All rights reserved.
 //
 
+import SafariServices
 import UIKit
 
 class ProfileViewController: BaseViewController {
@@ -72,9 +73,13 @@ class ProfileViewController: BaseViewController {
         self.locationLabel.text = nil
     }
 
+    var player: Player!
+
     // MARK: - Member Methods
 
     func configure(for player: Player) {
+
+        self.player = player
 
         DispatchQueue.main.async {
 
@@ -92,11 +97,23 @@ class ProfileViewController: BaseViewController {
         }
     }
 
+    @objc func handleTapGesture() {
+
+        if let url = URL(string: player.url) {
+            let config = SFSafariViewController.Configuration()
+            config.entersReaderIfAvailable = true
+
+            let vc = SFSafariViewController(url: url, configuration: config)
+            present(vc, animated: true)
+        }
+    }
+
     // MARK : - Configure UI
 
     private func setup() {
 
-        // likely with switch to UIStackViews
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
+        view.addGestureRecognizer(tapGestureRecognizer)
 
         [profileImage, usernameLabel, nameLabel, locationLabel].forEach(view.addSubview(_:))
 
