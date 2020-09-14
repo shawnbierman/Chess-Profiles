@@ -108,7 +108,7 @@ extension PlayersTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        let vc = ProfileViewController()
+        let vc = ProfileDetailViewController()
         vc.modalPresentationStyle = .popover
         vc.player = isSearching ? filteredPlayers[indexPath.row] : players[indexPath.row]
         navigationController?.present(vc, animated: true, completion: nil)

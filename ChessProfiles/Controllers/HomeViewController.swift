@@ -10,6 +10,8 @@ import UIKit
 
 class HomeViewController: BaseViewController {
 
+    let profileVC = ProfileViewController()
+
     var player: String? {
         didSet {
             
@@ -19,14 +21,8 @@ class HomeViewController: BaseViewController {
 
                 switch result {
 
-                case .success(let profile):
-
-                    if let title = profile.title {
-                        print("Randomly chosen titled player is \"\(profile.username)\" with a title of \"\(title)\".")
-                    } else {
-                        print("Fetching again...")
-                        self.fetchRandomTitledPlayer()
-                    }
+                case .success(let player):
+                    self.profileVC.configure(for: player)
 
                 case .failure(let error):
                     dump(error.localizedDescription)
@@ -37,6 +33,7 @@ class HomeViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -62,5 +59,23 @@ class HomeViewController: BaseViewController {
                 dump(error.localizedDescription)
             }
         }
+    }
+
+    private func setup() {
+
+        let headerPadding: CGFloat = 20
+
+        add(profileVC)
+
+        profileVC.view.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+
+            profileVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: headerPadding),
+            profileVC.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: headerPadding),
+            profileVC.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -headerPadding),
+            profileVC.view.heightAnchor.constraint(equalToConstant: 150)
+
+        ])
     }
 }
