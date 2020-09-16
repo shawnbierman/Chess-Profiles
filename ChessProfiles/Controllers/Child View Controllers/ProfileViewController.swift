@@ -54,6 +54,21 @@ class ProfileViewController: BaseViewController {
         return label
     }()
 
+    let titleLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .systemRed
+        label.textColor = .white
+        label.font = .preferredFont(forTextStyle: .headline)
+        label.adjustsFontSizeToFitWidth = true
+        label.adjustsFontForContentSizeCategory = true
+        label.layer.cornerRadius = 4
+        label.clipsToBounds = true
+        label.textAlignment = .center
+        label.baselineAdjustment = .alignCenters
+        return label
+    }()
+
     // MARK: - Lifecycle Methods
 
     override func viewDidLoad() {
@@ -71,6 +86,7 @@ class ProfileViewController: BaseViewController {
         self.usernameLabel.text = nil
         self.nameLabel.text = nil
         self.locationLabel.text = nil
+        self.titleLabel.text = nil
     }
 
     var player: Player!
@@ -93,7 +109,7 @@ class ProfileViewController: BaseViewController {
             self.usernameLabel.text = player.username
             self.nameLabel.text = player.name ?? ""
             self.locationLabel.text = player.location ?? ""
-
+            self.titleLabel.text = player.title?.rawValue ?? ""
         }
     }
 
@@ -115,7 +131,7 @@ class ProfileViewController: BaseViewController {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
         view.addGestureRecognizer(tapGestureRecognizer)
 
-        [profileImage, usernameLabel, nameLabel, locationLabel].forEach(view.addSubview(_:))
+        [profileImage, usernameLabel, nameLabel, locationLabel, titleLabel].forEach(view.addSubview(_:))
 
         NSLayoutConstraint.activate([
 
@@ -138,6 +154,12 @@ class ProfileViewController: BaseViewController {
             locationLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
             locationLabel.trailingAnchor.constraint(equalTo: usernameLabel.trailingAnchor),
             locationLabel.heightAnchor.constraint(equalToConstant: 20),
+
+            titleLabel.centerXAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: -5),
+            titleLabel.topAnchor.constraint(equalTo: profileImage.topAnchor, constant: 5),
+            titleLabel.heightAnchor.constraint(equalToConstant: 18),
+            titleLabel.widthAnchor.constraint(equalToConstant: 30)
+
 
         ])
     }
