@@ -10,6 +10,7 @@
 		1F15AE61250BA19100CE7DA6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F15AE60250BA19100CE7DA6 /* BaseViewController.swift */; };
 		1F5E1384250E7E610079CE2B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5E1383250E7E610079CE2B /* ProfileViewController.swift */; };
 		1F5E1386250E87F90079CE2B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5E1385250E87F90079CE2B /* UIViewController+Extension.swift */; };
+		1F870A7D25119556007A6486 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1F870A7C25119556007A6486 /* README.md */; };
 		1F9D2884250AB19000994CFC /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D2883250AB19000994CFC /* ProfileDetailViewController.swift */; };
 		1F9D2887250AE05C00994CFC /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D2886250AE05C00994CFC /* Player.swift */; };
 		1F9D288A250AF1AC00994CFC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1F9D2889250AF1AC00994CFC /* Kingfisher */; };
@@ -31,6 +32,7 @@
 		1F15AE60250BA19100CE7DA6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1F5E1383250E7E610079CE2B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1F5E1385250E87F90079CE2B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		1F870A7C25119556007A6486 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		1F9D2883250AB19000994CFC /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
 		1F9D2886250AE05C00994CFC /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1FD719F2250980B5001A12C9 /* Chess Profiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chess Profiles.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +90,7 @@
 		1FD719F4250980B5001A12C9 /* ChessProfiles */ = {
 			isa = PBXGroup;
 			children = (
+				1F870A7C25119556007A6486 /* README.md */,
 				1FD71A16250981A3001A12C9 /* Controllers */,
 				1FD71A132509818A001A12C9 /* Services */,
 				1FD71A102509816B001A12C9 /* Enums */,
@@ -188,7 +191,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1170;
-				LastUpgradeCheck = 1170;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Shawn Bierman";
 				TargetAttributes = {
 					1FD719F1250980B5001A12C9 = {
@@ -222,6 +225,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F870A7D25119556007A6486 /* README.md in Resources */,
 				1FD71A02250980B7001A12C9 /* LaunchScreen.storyboard in Resources */,
 				1FD719FF250980B7001A12C9 /* Assets.xcassets in Resources */,
 			);
@@ -292,6 +296,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -352,6 +357,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
